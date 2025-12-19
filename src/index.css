@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -45,9 +47,10 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  background: "linear-gradient(135deg, #56CDD3 0%, #3596E3 100%)";
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #1a1a1a;
 }
 button:focus,
 button:focus-visible {
