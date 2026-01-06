@@ -44,7 +44,6 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
   background: "linear-gradient(135deg, #56CDD3 0%, #3596E3 100%)";
