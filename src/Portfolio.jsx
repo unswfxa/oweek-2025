@@ -1,7 +1,10 @@
-function Portfolio({ cash }) {
-    return (
-        <h2 className="text-2xl">Current Balance: ${cash.toFixed(2)}</h2>
-    );
+function Portfolio({ cash, invested }) {
+  return (
+    <div className="flex gap-8 text-lg font-medium">
+      <div>Cash: ${cash.toFixed(2)}</div>
+      <div>Invested: ${invested.toFixed(2)}</div>
+    </div>
+  );
 }
 
 export default Portfolio;
