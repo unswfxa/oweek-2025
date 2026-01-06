@@ -1,7 +1,12 @@
+import logo from "./assets/logo.png";
+
 function Landing({ startGame }) {
   return (
     <>
       <div className="w-screen min-h-screen justify-center flex flex-col bg-zinc-900 text-white">
+        <div className="absolute top-6 right-8">
+          <img src={logo} alt="FXA Logo" className="h-10 w-auto" />
+        </div>
         <div className="flex flex-col justify-center items-center gap-12 m-16">
           <h1 className="text-center">Trading Stocks</h1>
           <p className="text-xl text-center">
