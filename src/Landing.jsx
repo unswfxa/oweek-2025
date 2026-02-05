@@ -23,7 +23,7 @@ function Landing({ startGame }) {
 
           <div className="flex flex-col justify-center items-center gap-4 md:gap-8">
               <p className="my-2 md:my-4 text-xl md:text-3xl text-center">
-                Starting Balance: <span className="font-bold text-cyan-400"> $20,000</span>
+                Starting Balance: <span className="font-bold text-cyan-400"> $100</span>
               </p>
 
             <button
