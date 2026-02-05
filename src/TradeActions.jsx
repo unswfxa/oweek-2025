@@ -6,14 +6,14 @@ function TradeActions({ onBuy, onSell, onHold }) {
           onClick={onBuy}
           className="px-4 md:px-6 py-3 md:py-4 bg-green-600 text-white rounded-xl font-bold transition-all duration-300 hover:scale-105 overflow-hidden"
         >
-          <span className="text-xl md:text-3xl">Buy</span>
+          <span className="text-xl md:text-3xl">Buy $20</span>
         </button>
 
         <button
           onClick={onSell}
           className="px-4 md:px-6 py-3 md:py-4 bg-red-600 text-white rounded-xl font-bold transition-all duration-300 hover:scale-105 overflow-hidden"
         >
-          <span className="text-xl md:text-3xl">Sell</span>
+          <span className="text-xl md:text-3xl">Sell $20</span>
         </button>
 
         <button

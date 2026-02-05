@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import TradeActions from "./TradeActions";
 import TradePrompt from "./TradePrompt";
 import Portfolio from "./Portfolio";
-import TradeAmount from "./TradeAmount";
 import prompts from "./data/prompts";
 import logo from "./assets/logo.png";
 
@@ -18,9 +17,8 @@ const getRandomPercent = (min, max) => {
 };
 
 function Game({ goBack }) {
-  const [cash, setCash] = useState(20000);
+  const [cash, setCash] = useState(100);
   const [invested, setInvested] = useState(0);
-  const [amount, setAmount] = useState("");
   const [gamePrompts] = useState(() => getRandomPrompts(prompts));
   const [promptIndex, setPromptIndex] = useState(0);
   const [lastEffect, setLastEffect] = useState(null);
@@ -42,7 +40,6 @@ function Game({ goBack }) {
 
   const advanceToNextRound = () => {
     setPromptIndex((prev) => prev + 1);
-    setAmount("");
     setShowMarketMove(false);
   };
 
@@ -57,9 +54,11 @@ function Game({ goBack }) {
     }
   }, [showMarketMove]);
 
+  const TRADE_AMOUNT = 20;
+
   const handleBuy = () => {
-    const value = Number(amount);
-    if (value <= 0 || value > cash) return;
+    const value = Math.min(TRADE_AMOUNT, cash);
+    if (value <= 0) return;
 
     setCash((prev) => prev - value);
     setInvested((prev) => prev + value);
@@ -67,8 +66,8 @@ function Game({ goBack }) {
   };
 
   const handleSell = () => {
-    const value = Number(amount);
-    if (value <= 0 || value > invested) return;
+    const value = Math.min(TRADE_AMOUNT, invested);
+    if (value <= 0) return;
 
     setInvested((prev) => prev - value);
     setCash((prev) => prev + value);
@@ -128,11 +127,7 @@ function Game({ goBack }) {
         )}
 
         {!showMarketMove && !gameOver && (
-          <>
-            <TradeAmount amount={amount} setAmount={setAmount} cash={cash} invested={invested} actionType="buy" />
-
-            <TradeActions onBuy={handleBuy} onSell={handleSell} onHold={handleHold} />
-          </>
+          <TradeActions onBuy={handleBuy} onSell={handleSell} onHold={handleHold} />
         )}
 
         {gameOver && (
@@ -151,9 +146,9 @@ function Game({ goBack }) {
                 <div className="text-center">
                   {(() => {
                     const finalBalance = cash + invested;
-                    const isProfit = finalBalance > 20000;
-                    const diff = Math.abs(finalBalance - 20000);
-                    const percentChange = ((diff / 20000) * 100).toFixed(2);
+                    const isProfit = finalBalance > 100;
+                    const diff = Math.abs(finalBalance - 100);
+                    const percentChange = ((diff / 100) * 100).toFixed(2);
 
                     return (
                       <div className={`p-6 rounded-xl ${isProfit ? "bg-green-500/10 border border-green-500/30" : "bg-red-500/10 border border-red-500/30"}`}>
