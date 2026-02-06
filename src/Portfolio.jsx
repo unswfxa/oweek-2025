@@ -7,13 +7,13 @@ function Portfolio({ cash, invested }) {
         <div className="grid grid-cols-3 gap-3 md:gap-6">
           {/* Cash */}
           <div className="flex flex-col items-center gap-1 md:gap-2">
-            <span className="text-xs md:text-sm text-gray-400 uppercase tracking-wide">Cash [USD]</span>
+            <span className="text-xs md:text-sm text-gray-400 uppercase tracking-wide">Cash (USD)</span>
             <span className="text-base md:text-2xl font-bold text-green-400">${cash.toFixed(2)}</span>
           </div>
 
           {/* Invested */}
           <div className="flex flex-col items-center gap-1 md:gap-2">
-            <span className="text-xs md:text-sm text-gray-400 uppercase tracking-wide">Invested [AUD]</span>
+            <span className="text-xs md:text-sm text-gray-400 uppercase tracking-wide">Invested (AUD)</span>
             <span className="text-base md:text-2xl font-bold text-cyan-400">${invested.toFixed(2)}</span>
           </div>
 
