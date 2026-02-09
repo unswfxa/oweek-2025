@@ -5,7 +5,7 @@ import Portfolio from "./Portfolio";
 import prompts from "./data/prompts";
 import logo from "./assets/logo.png";
 
-const TOTAL_ROUNDS = 6;
+const TOTAL_ROUNDS = 4;
 
 const getRandomPrompts = (allPrompts, count = TOTAL_ROUNDS) => {
   const shuffled = [...allPrompts].sort(() => Math.random() - 0.5);
@@ -29,7 +29,7 @@ function Game({ goBack }) {
   const currentPrompt = gamePrompts[promptIndex];
 
   useEffect(() => {
-    if (pendingMarketMove && invested > 0 && currentPrompt) {
+    if (pendingMarketMove && currentPrompt) {
       const percent = getRandomPercent(currentPrompt.min, currentPrompt.max);
       setInvested((prev) => prev * (1 + percent / 100));
       setLastEffect(percent);
